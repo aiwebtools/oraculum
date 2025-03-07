@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { Eye, ArrowRight, ExternalLink, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -610,7 +609,7 @@ const Index = () => {
                 rel="noopener noreferrer"
                 className="hover:text-purple-400 transition-colors"
               >
-                © 2025 AI WEB TOOLS LLC All rights reserved.
+                © 2025 AIWebTools.Ai All rights reserved.
               </a>
             </div>
             <div className="flex gap-4">
