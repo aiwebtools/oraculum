@@ -192,6 +192,9 @@ const Index = () => {
                     ></iframe>
                   </AspectRatio>
                 </div>
+                <p className="text-xs text-purple-400 italic text-center py-2 px-1">
+                  Disclaimer: All information provided by Oraculum is for educational purposes only and requires independent verification.
+                </p>
               </div>
               <div className="absolute -bottom-4 -right-4 bg-zinc-900 border border-purple-500 rounded-lg p-3 shadow-lg">
                 <Youtube className="w-8 h-8 text-red-500" />
