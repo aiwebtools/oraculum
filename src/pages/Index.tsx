@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+
+import React, { useEffect, useRef } from "react";
 import { Eye, ArrowRight, ExternalLink, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -6,11 +7,24 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Separator } from "@/components/ui/separator";
 
 const Index = () => {
+  const elevenLabsWidgetRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     // Show disclaimer modal on first visit
     const hasAgreed = localStorage.getItem("disclaimerAgreed");
     if (!hasAgreed) {
       document.getElementById("disclaimer-modal")?.classList.remove("hidden");
+    }
+
+    // Initialize the Eleven Labs widget
+    if (elevenLabsWidgetRef.current) {
+      // Create the widget element
+      const widgetElement = document.createElement('elevenlabs-convai');
+      widgetElement.setAttribute('agent-id', 'MGZMLTmz5SVSBNgJP6rM');
+      
+      // Clear any existing content and append the new widget
+      elevenLabsWidgetRef.current.innerHTML = '';
+      elevenLabsWidgetRef.current.appendChild(widgetElement);
     }
   }, []);
 
@@ -632,17 +646,12 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="fixed bottom-6 right-6">
-            <Button 
-              className="rounded-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 w-16 h-16 p-0 shadow-lg"
-              onClick={() => window.open("https://www.aiwebtools.ai", "_blank")}
-            >
-              <div className="flex flex-col items-center justify-center text-white">
-                <span className="text-[10px]">More</span>
-                <span className="text-[10px]">AI Tools</span>
-              </div>
-            </Button>
-          </div>
+          {/* Eleven Labs Conversational AI Widget */}
+          <div 
+            ref={elevenLabsWidgetRef}
+            className="fixed bottom-6 right-6 z-50"
+            data-elevenlabs-key="sk_d4ba415b39332fdbfc89f2ee1eb32967ed650b6c1b71b4a2"
+          ></div>
         </div>
       </footer>
     </div>
