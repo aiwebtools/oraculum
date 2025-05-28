@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { Eye, ArrowRight, ExternalLink, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -197,7 +198,7 @@ const Index = () => {
                 <div className="rounded-lg overflow-hidden relative">
                   <AspectRatio ratio={16/9}>
                     <iframe
-                      src="https://www.youtube.com/embed/DCZVO_Czanw?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&hd=1"
+                      src="https://www.youtube.com/embed/dUNrGNj8rhM?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&hd=1"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="absolute inset-0 w-full h-full"
