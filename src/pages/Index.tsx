@@ -1,10 +1,10 @@
-
 import React, { useEffect, useRef } from "react";
 import { Eye, ArrowRight, ExternalLink, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Separator } from "@/components/ui/separator";
+import { createTimePortalEffect } from "@/utils/timeEffects";
 
 const Index = () => {
   const elevenLabsWidgetRef = useRef<HTMLDivElement>(null);
@@ -38,6 +38,12 @@ const Index = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  // Time portal effect handler for external links
+  const handleExternalLinkClick = (e: React.MouseEvent, url: string) => {
+    e.preventDefault();
+    createTimePortalEffect(url);
   };
 
   return (
@@ -84,13 +90,13 @@ const Index = () => {
               <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                 ORACULUM
               </h1>
-              <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">AiWebTools.Ai</a></p>
+              <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
             </div>
           </div>
 
           <nav className="hidden md:flex items-center gap-6">
             <button 
-              onClick={() => window.open("https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths", "_blank")}
+              onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
               className="text-purple-400 hover:text-purple-300 transition-colors"
             >
               USE Oraculum NOW
@@ -104,7 +110,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
-              onClick={() => window.open("https://www.aiwebtools.ai", "_blank")}
+              onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
             >
               More AI Tools <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
@@ -122,8 +128,8 @@ const Index = () => {
         <div id="mobile-menu" className="md:hidden hidden bg-zinc-900 border-b border-purple-900">
           <div className="container mx-auto p-4 flex flex-col gap-4">
             <button 
-              onClick={() => {
-                window.open("https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths", "_blank");
+              onClick={(e) => {
+                handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths");
                 document.getElementById("mobile-menu")?.classList.add("hidden");
               }}
               className="text-purple-400 hover:text-purple-300 py-2"
@@ -151,7 +157,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
-              onClick={() => window.open("https://www.aiwebtools.ai", "_blank")}
+              onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
             >
               More AI Tools <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
@@ -180,7 +186,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 h-auto text-lg rounded-lg shadow-lg shadow-purple-600/20 flex items-center"
-                  onClick={() => window.open("https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths", "_blank")}
+                  onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
                 >
                   Begin Your Journey <ArrowRight className="ml-2" />
                 </Button>
@@ -507,7 +513,7 @@ const Index = () => {
             </p>
             <Button 
               className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 h-auto text-lg rounded-lg shadow-lg shadow-purple-600/20"
-              onClick={() => window.open("https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths", "_blank")}
+              onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
             >
               USE Oraculum NOW <ArrowRight className="ml-2" />
             </Button>
@@ -531,7 +537,7 @@ const Index = () => {
                   <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                     ORACULUM
                   </h3>
-                  <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">AiWebTools.Ai</a></p>
+                  <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
                 </div>
               </div>
               <p className="text-gray-400 text-sm">
@@ -543,14 +549,12 @@ const Index = () => {
               <h3 className="text-white font-semibold mb-4">Navigate</h3>
               <ul className="space-y-2">
                 <li>
-                  <a 
-                    href="https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
                     className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     USE Oraculum NOW
-                  </a>
+                  </button>
                 </li>
                 <li>
                   <button 
@@ -569,14 +573,12 @@ const Index = () => {
                   </button>
                 </li>
                 <li>
-                  <a 
-                    href="https://www.aiwebtools.ai" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
                     className="text-gray-400 hover:text-purple-400 transition-colors flex items-center"
                   >
                     More AI Tools <ExternalLink className="ml-1 w-3 h-3" />
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -614,32 +616,26 @@ const Index = () => {
           
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-500 text-sm">
-              <a 
-                href="https://www.aiwebtools.ai" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <button 
+                onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
                 className="hover:text-purple-400 transition-colors"
               >
                 © 2025 AIWebTools.Ai All rights reserved.
-              </a>
+              </button>
             </div>
             <div className="flex gap-4">
-              <a 
-                href="https://openai.com/policies/privacy-policy/" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <button 
+                onClick={(e) => handleExternalLinkClick(e, "https://openai.com/policies/privacy-policy/")}
                 className="text-gray-500 text-sm hover:text-purple-400 transition-colors"
               >
                 Privacy Policy
-              </a>
-              <a 
-                href="https://aiwebtools.ai/terms-of-services" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              </button>
+              <button 
+                onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.ai/terms-of-services")}
                 className="text-gray-500 text-sm hover:text-purple-400 transition-colors"
               >
                 Terms of Service
-              </a>
+              </button>
             </div>
           </div>
           
