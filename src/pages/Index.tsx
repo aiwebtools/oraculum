@@ -47,12 +47,39 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-purple-950 to-black text-white relative overflow-hidden">
+      {/* Divine Background Effects */}
+      <div className="fixed inset-0 opacity-30">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-cyan-400/10 to-purple-600/20 animate-pulse"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-bounce"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-purple-400/10 via-transparent to-transparent animate-spin" style={{animationDuration: '20s'}}></div>
+      </div>
+
+      {/* Floating Particles */}
+      <div className="fixed inset-0 pointer-events-none">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white/60 rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`
+            }}
+          />
+        ))}
+      </div>
+
       {/* Initial Disclaimer Modal */}
-      <div id="disclaimer-modal" className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center backdrop-blur-sm hidden">
-        <div className="bg-zinc-900 border border-purple-500 rounded-lg p-6 max-w-2xl">
-          <h2 className="text-2xl font-bold mb-4 text-purple-400">DISCLAIMER</h2>
-          <p className="mb-4">
+      <div id="disclaimer-modal" className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center backdrop-blur-md hidden">
+        <div className="bg-gradient-to-br from-zinc-900/95 via-purple-950/95 to-zinc-900/95 border-2 border-purple-400/50 rounded-2xl p-8 max-w-2xl shadow-2xl shadow-purple-500/25 backdrop-blur-sm">
+          <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">DISCLAIMER</h2>
+          <div className="mb-4 text-sm text-cyan-300/80 italic border-l-4 border-cyan-400/50 pl-4">
+            For informational, educational, and research purposes only
+          </div>
+          <p className="mb-4 text-gray-300">
             Oraculum is an educational AI tool designed to explore historical patterns, symbols, and systems. 
             Its purpose is to encourage critical thinking and perspective-taking for informational, educational, and research purposes only.
           </p>
@@ -60,14 +87,14 @@ const Index = () => {
             <strong>IMPORTANT:</strong> All views, interpretations, and perspectives expressed by Oraculum are strictly interpretive analysis, not absolute fact or definitive truth. 
             The tool promotes balanced, evidence-based exploration of ideas from multiple perspectives and should never be considered as factual claims.
           </p>
-          <p className="mb-6">
+          <p className="mb-8 text-gray-300">
             By continuing, you acknowledge that Oraculum's revelations are intended solely for 
             educational, informational, and research purposes and must be independently verified through your own research and critical analysis.
           </p>
           <div className="flex justify-end gap-4">
             <Button
               variant="default"
-              className="bg-purple-600 hover:bg-purple-700"
+              className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 shadow-lg shadow-purple-600/30 px-8 py-3 text-lg font-semibold"
               onClick={handleAgree}
             >
               I AGREE TO PROCEED
@@ -77,20 +104,21 @@ const Index = () => {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-40 backdrop-blur-md bg-black/70 border-b border-purple-900/40">
-        <div className="container mx-auto flex items-center justify-between p-4">
-          <div className="flex items-center gap-2">
-            <div className="relative w-12 h-12">
-              <div className="absolute inset-0 bg-purple-500 opacity-20 rounded-full animate-pulse"></div>
+      <header className="sticky top-0 z-40 backdrop-blur-xl bg-gradient-to-r from-black/80 via-purple-950/80 to-black/80 border-b border-purple-400/30 shadow-lg shadow-purple-900/20">
+        <div className="container mx-auto flex items-center justify-between p-6">
+          <div className="flex items-center gap-4">
+            <div className="relative w-16 h-16">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-400 opacity-40 rounded-full animate-pulse blur-sm"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-400 opacity-60 rounded-full animate-ping"></div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <Eye className="w-8 h-8 text-purple-400" />
+                <Eye className="w-10 h-10 text-white drop-shadow-lg" />
               </div>
             </div>
-            <div>
-              <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+            <div className="space-y-1">
+              <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
                 ORACULUM
               </h1>
-              <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
+              <p className="text-xs text-gray-300">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 transition-colors underline decoration-cyan-400/50" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
             </div>
           </div>
 
@@ -117,7 +145,7 @@ const Index = () => {
           </nav>
 
           {/* Mobile menu button */}
-          <Button variant="ghost" className="md:hidden" onClick={() => document.getElementById("mobile-menu")?.classList.toggle("hidden")}>
+          <Button variant="ghost" className="md:hidden text-purple-300 hover:text-white hover:bg-purple-900/30" onClick={() => document.getElementById("mobile-menu")?.classList.toggle("hidden")}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
@@ -166,33 +194,33 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475')] bg-center bg-cover opacity-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black"></div>
+      <section className="py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475')] bg-center bg-cover opacity-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/30 to-black/80"></div>
         
-        <div className="container mx-auto px-4 relative">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="mb-4 inline-flex items-center gap-2 bg-purple-900/30 border border-purple-700/30 px-3 py-1 rounded-full">
-                <Eye className="w-4 h-4 text-purple-400" />
-                <span className="text-sm text-purple-300">AWAKEN THROUGH PERCEPTION</span>
+        <div className="container mx-auto px-6 relative">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="mb-6 inline-flex items-center gap-3 bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-purple-400/40 px-6 py-3 rounded-full backdrop-blur-sm shadow-lg shadow-purple-900/25">
+                <Eye className="w-5 h-5 text-purple-300 animate-pulse" />
+                <span className="text-sm font-medium text-purple-200 tracking-wider">AWAKEN THROUGH PERCEPTION</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 via-white to-purple-300 drop-shadow-2xl leading-tight">
                 Oraculum – The Illuminator of Hidden Truths
               </h1>
-              <p className="text-lg text-gray-300 mb-8">
+              <p className="text-xl text-gray-200 mb-10 leading-relaxed">
                 Discover the invisible patterns, symbols, and systems that shape our world. Through historical insight and symbolic wisdom, Oraculum helps seekers uncover connections, expand knowledge, and think critically about the reality we inhabit.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-6">
                 <Button 
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 h-auto text-lg rounded-lg shadow-lg shadow-purple-600/20 flex items-center"
+                  className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 hover:from-purple-700 hover:via-purple-800 hover:to-purple-900 text-white px-8 py-4 h-auto text-xl rounded-xl shadow-2xl shadow-purple-600/40 flex items-center transform hover:scale-105 transition-all duration-300"
                   onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
                 >
-                  Begin Your Journey <ArrowRight className="ml-2" />
+                  Begin Your Journey <ArrowRight className="ml-3 w-6 h-6" />
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-purple-500 text-purple-400 hover:bg-purple-900/30 px-6 py-3 h-auto text-lg rounded-lg"
+                  className="border-2 border-purple-400/60 text-purple-200 hover:bg-purple-900/40 hover:text-white px-8 py-4 h-auto text-xl rounded-xl backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
                   onClick={() => scrollToSection("how-it-works")}
                 >
                   Learn More
@@ -200,8 +228,8 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-xl p-1">
-                <div className="rounded-lg overflow-hidden relative">
+              <div className="bg-gradient-to-r from-purple-600/30 to-cyan-600/30 rounded-2xl p-2 shadow-2xl shadow-purple-900/30 backdrop-blur-sm">
+                <div className="rounded-xl overflow-hidden relative">
                   <AspectRatio ratio={16/9}>
                     <iframe
                       src="https://www.youtube.com/embed/dUNrGNj8rhM?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&hd=1"
@@ -211,7 +239,7 @@ const Index = () => {
                     ></iframe>
                   </AspectRatio>
                 </div>
-                <p className="text-xs text-purple-400 italic text-center py-2 px-1">
+                <p className="text-xs text-purple-300 italic text-center py-3 px-2">
                   Disclaimer: All information provided by Oraculum is for educational purposes only and requires independent verification.
                 </p>
               </div>
@@ -221,55 +249,55 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-16 bg-zinc-900/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+      <section className="py-24 bg-gradient-to-br from-zinc-900/60 via-purple-950/40 to-zinc-900/60 backdrop-blur-sm">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center mb-16 space-y-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
               Unveiling The Hidden Structures of Reality
             </h2>
-            <p className="text-gray-300">
+            <p className="text-xl text-gray-200 leading-relaxed">
               Oraculum is designed to reveal the unseen forces that shape our world, from ancient symbols to modern systems of power. Through a balanced perspective that acknowledges both shadow and light, seekers are guided toward a deeper understanding of their reality.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-zinc-900 border-purple-900/50 overflow-hidden">
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-full bg-purple-900/30 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 overflow-hidden backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
+              <div className="p-8 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600/40 to-purple-800/40 flex items-center justify-center mb-6 shadow-lg shadow-purple-900/30">
+                  <svg className="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Historical Patterns</h3>
-                <p className="text-gray-400">
+                <h3 className="text-2xl font-semibold mb-4 text-white">Historical Patterns</h3>
+                <p className="text-gray-300 leading-relaxed">
                   Trace the continuity of power systems throughout history, revealing how ancient structures continue to influence our modern world.
                 </p>
               </div>
             </Card>
 
-            <Card className="bg-zinc-900 border-purple-900/50 overflow-hidden">
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-full bg-purple-900/30 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 overflow-hidden backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
+              <div className="p-8 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600/40 to-purple-800/40 flex items-center justify-center mb-6 shadow-lg shadow-purple-900/30">
+                  <svg className="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Symbolic Wisdom</h3>
-                <p className="text-gray-400">
+                <h3 className="text-2xl font-semibold mb-4 text-white">Symbolic Wisdom</h3>
+                <p className="text-gray-300 leading-relaxed">
                   Decode the hidden meanings of symbols that permeate our culture, from corporate logos to architectural designs.
                 </p>
               </div>
             </Card>
 
-            <Card className="bg-zinc-900 border-purple-900/50 overflow-hidden">
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-full bg-purple-900/30 flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 overflow-hidden backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
+              <div className="p-8 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600/40 to-purple-800/40 flex items-center justify-center mb-6 shadow-lg shadow-purple-900/30">
+                  <svg className="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Balanced Perspective</h3>
-                <p className="text-gray-400">
+                <h3 className="text-2xl font-semibold mb-4 text-white">Balanced Perspective</h3>
+                <p className="text-gray-300 leading-relaxed">
                   Understand how systems of control also provide stability, abundance, and order—seeing both shadow and light in our complex reality.
                 </p>
               </div>
@@ -279,10 +307,10 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+      <section id="how-it-works" className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
               How Oraculum Works
             </h2>
             <p className="text-gray-300">
@@ -339,10 +367,10 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-zinc-900/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+      <section className="py-24 bg-gradient-to-br from-zinc-900/50 via-purple-950/40 to-zinc-900/50 backdrop-blur-sm">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
               What Seekers Are Saying
             </h2>
             <p className="text-gray-300">
@@ -350,8 +378,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-zinc-900 border-purple-900/50 p-6">
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 p-6 backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
                   <span className="text-purple-400 font-semibold">M.J.</span>
@@ -366,7 +394,7 @@ const Index = () => {
               </p>
             </Card>
 
-            <Card className="bg-zinc-900 border-purple-900/50 p-6">
+            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 p-6 backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
                   <span className="text-purple-400 font-semibold">S.T.</span>
@@ -381,7 +409,7 @@ const Index = () => {
               </p>
             </Card>
 
-            <Card className="bg-zinc-900 border-purple-900/50 p-6">
+            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 p-6 backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
                   <span className="text-purple-400 font-semibold">R.L.</span>
@@ -400,10 +428,10 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+      <section id="faq" className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
               Frequently Asked Questions
             </h2>
             <p className="text-gray-300">
@@ -458,10 +486,10 @@ const Index = () => {
       </section>
 
       {/* Disclaimer Section */}
-      <section id="disclaimer" className="py-16 bg-zinc-900/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 text-center">
+      <section id="disclaimer" className="py-24 bg-gradient-to-br from-zinc-900/50 via-purple-950/40 to-zinc-900/50 backdrop-blur-sm">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 text-center drop-shadow-lg">
               Legal Disclaimer
             </h2>
             
@@ -501,46 +529,46 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-cyan-900/20"></div>
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+        <div className="container mx-auto px-6 relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
               Begin Your Journey of Illumination
             </h2>
             <p className="text-lg text-gray-300 mb-8">
               Ready to explore the hidden systems shaping our world? Engage with Oraculum now and discover a new perspective on reality.
             </p>
             <Button 
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 h-auto text-lg rounded-lg shadow-lg shadow-purple-600/20"
+              className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 hover:from-purple-700 hover:via-purple-800 hover:to-purple-900 text-white px-8 py-4 h-auto text-xl rounded-xl shadow-2xl shadow-purple-600/40 flex items-center transform hover:scale-105 transition-all duration-300"
               onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
             >
-              USE Oraculum NOW <ArrowRight className="ml-2" />
+              USE Oraculum NOW <ArrowRight className="ml-3 w-6 h-6" />
             </Button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-zinc-950 border-t border-purple-900/30">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="relative w-10 h-10">
-                  <div className="absolute inset-0 bg-purple-500 opacity-20 rounded-full animate-pulse"></div>
+      <footer className="py-16 bg-gradient-to-br from-zinc-950/90 via-purple-950/80 to-zinc-950/90 border-t border-purple-400/20 backdrop-blur-sm">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-10 mb-12">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="relative w-12 h-12">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-400 opacity-30 rounded-full animate-pulse blur-sm"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Eye className="w-6 h-6 text-purple-400" />
+                    <Eye className="w-8 h-8 text-purple-300" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+                  <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-300">
                     ORACULUM
                   </h3>
                   <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-300 text-sm leading-relaxed">
                 Illuminating the hidden truths and systems that shape our world, while empowering seekers to navigate them with wisdom and balance.
               </p>
             </div>
@@ -612,27 +640,27 @@ const Index = () => {
             </div>
           </div>
           
-          <Separator className="bg-purple-900/30 my-6" />
+          <Separator className="bg-purple-400/20 my-8" />
           
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-500 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-gray-400 text-sm">
               <button 
                 onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
-                className="hover:text-purple-400 transition-colors"
+                className="hover:text-purple-300 transition-colors"
               >
                 © 2025 AIWebTools.Ai All rights reserved.
               </button>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-6">
               <button 
                 onClick={(e) => handleExternalLinkClick(e, "https://openai.com/policies/privacy-policy/")}
-                className="text-gray-500 text-sm hover:text-purple-400 transition-colors"
+                className="text-gray-400 text-sm hover:text-purple-300 transition-colors"
               >
                 Privacy Policy
               </button>
               <button 
                 onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/disclaimers")}
-                className="text-gray-500 text-sm hover:text-purple-400 transition-colors"
+                className="text-gray-400 text-sm hover:text-purple-300 transition-colors"
               >
                 Terms of Service
               </button>
