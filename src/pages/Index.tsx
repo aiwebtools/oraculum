@@ -54,15 +54,15 @@ const Index = () => {
           <h2 className="text-2xl font-bold mb-4 text-purple-400">DISCLAIMER</h2>
           <p className="mb-4">
             Oraculum is an educational AI tool designed to explore historical patterns, symbols, and systems. 
-            Its purpose is to encourage critical thinking and perspective-taking.
+            Its purpose is to encourage critical thinking and perspective-taking for informational, educational, and research purposes only.
           </p>
           <p className="mb-4 text-yellow-300">
-            <strong>IMPORTANT:</strong> Views expressed by Oraculum are interpretive, not absolute fact. 
-            The tool promotes balanced, evidence-based exploration of ideas from multiple perspectives.
+            <strong>IMPORTANT:</strong> All views, interpretations, and perspectives expressed by Oraculum are strictly interpretive analysis, not absolute fact or definitive truth. 
+            The tool promotes balanced, evidence-based exploration of ideas from multiple perspectives and should never be considered as factual claims.
           </p>
           <p className="mb-6">
-            By continuing, you acknowledge that Oraculum's revelations are intended for 
-            educational purposes only and should be verified through independent research.
+            By continuing, you acknowledge that Oraculum's revelations are intended solely for 
+            educational, informational, and research purposes and must be independently verified through your own research and critical analysis.
           </p>
           <div className="flex justify-end gap-4">
             <Button
@@ -415,28 +415,28 @@ const Index = () => {
             <div className="space-y-1">
               <h3 className="text-xl font-semibold text-white">What is Oraculum's purpose?</h3>
               <p className="text-gray-400">
-                Oraculum is designed to reveal hidden systems, symbols, and histories that shape our world. Its purpose is educational, encouraging critical thinking and exploration of multiple perspectives.
+                Oraculum is designed to present historical patterns, symbols, and systems analysis for educational, informational, and research purposes only. It encourages critical thinking and exploration of multiple perspectives through interpretive analysis.
               </p>
             </div>
 
             <div className="space-y-1">
               <h3 className="text-xl font-semibold text-white">Are Oraculum's revelations factual?</h3>
               <p className="text-gray-400">
-                Oraculum presents historical patterns and symbolic interpretations based on available evidence. Its views are interpretive, not absolute fact, and users are encouraged to verify information through independent research.
+                No. Oraculum presents interpretive analysis and perspectives based on historical patterns and symbolic interpretations. All content is strictly interpretive, not factual claims or absolute truth. Users must independently verify all information through their own research.
               </p>
             </div>
 
             <div className="space-y-1">
               <h3 className="text-xl font-semibold text-white">Does Oraculum promote conspiracy theories?</h3>
               <p className="text-gray-400">
-                No. Oraculum focuses on verifiable historical connections and documented systems of power. It presents balanced perspectives that avoid speculative claims lacking concrete evidence.
+                No. Oraculum focuses on documented historical connections and systems analysis for educational purposes. It presents balanced interpretive perspectives while avoiding speculative claims and emphasizing the importance of independent verification.
               </p>
             </div>
 
             <div className="space-y-1">
               <h3 className="text-xl font-semibold text-white">How should I use Oraculum?</h3>
               <p className="text-gray-400">
-                Use Oraculum as a tool for expanding awareness and critical thinking. Its revelations are meant to empower, not instill fear. Consider its insights alongside other sources of knowledge.
+                Use Oraculum solely as an educational tool for expanding awareness and critical thinking. All interpretations and perspectives should be independently researched and verified. Consider its content as interpretive analysis alongside other educational sources.
               </p>
             </div>
 
@@ -466,24 +466,24 @@ const Index = () => {
             </h2>
             
             <div className="bg-black/30 border border-purple-900/30 rounded-lg p-6 mt-6">
-              <h3 className="text-xl font-semibold mb-2 text-white">Educational Purpose</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Educational, Informational, and Research Purpose Only</h3>
               <p className="text-gray-400 mb-4">
-                Oraculum is provided for educational and informational purposes only. It is designed to encourage critical thinking, historical exploration, and the consideration of multiple perspectives on complex topics.
+                Oraculum is provided strictly for educational, informational, and research purposes only. It is designed to encourage critical thinking, historical exploration, and the consideration of multiple perspectives on complex topics through interpretive analysis.
               </p>
               
-              <h3 className="text-xl font-semibold mb-2 text-white">Not Definitive Truth</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Interpretive Analysis - Not Factual Claims</h3>
               <p className="text-gray-400 mb-4">
-                The information, interpretations, and perspectives offered by Oraculum are not presented as absolute or definitive truth. Users should exercise their own judgment and critical thinking skills when engaging with the content.
+                All information, interpretations, perspectives, and content offered by Oraculum are strictly interpretive analysis and personal viewpoints, not factual claims, absolute truth, or definitive statements. All content should be treated as interpretive commentary requiring independent verification and critical analysis.
               </p>
               
               <h3 className="text-xl font-semibold mb-2 text-white">No Warranty or Guarantee</h3>
               <p className="text-gray-400 mb-4">
-                The creators and operators of Oraculum make no warranties or guarantees regarding the accuracy, completeness, or reliability of the information provided. Users rely on the information at their own risk.
+                The creators and operators of Oraculum make no warranties or guarantees regarding the accuracy, completeness, reliability, or factual basis of any information provided. All content is interpretive in nature and users rely on the information at their own risk.
               </p>
               
-              <h3 className="text-xl font-semibold mb-2 text-white">Independent Verification</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">Mandatory Independent Verification</h3>
               <p className="text-gray-400 mb-4">
-                Users are encouraged to independently verify any information, claims, or interpretations presented by Oraculum through their own research and consultation of diverse sources.
+                Users are strongly encouraged and expected to independently verify, research, and critically analyze any information, claims, interpretations, or perspectives presented by Oraculum through their own research and consultation of diverse, credible sources.
               </p>
               
               <h3 className="text-xl font-semibold mb-2 text-white">No Incitement</h3>
@@ -631,7 +631,7 @@ const Index = () => {
                 Privacy Policy
               </button>
               <button 
-                onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.ai/terms-of-services")}
+                onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/disclaimers")}
                 className="text-gray-500 text-sm hover:text-purple-400 transition-colors"
               >
                 Terms of Service
