@@ -1,67 +1,33 @@
-import React, { useEffect, useRef } from "react";
-import { Eye, ArrowRight, ExternalLink, Youtube } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Separator } from "@/components/ui/separator";
-import { createTimePortalEffect } from "@/utils/timeEffects";
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 const Index = () => {
-  const elevenLabsWidgetRef = useRef<HTMLDivElement>(null);
+  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    // Show disclaimer modal on first visit
-    const hasAgreed = localStorage.getItem("disclaimerAgreed");
-    if (!hasAgreed) {
-      document.getElementById("disclaimer-modal")?.classList.remove("hidden");
+    const showDisclaimer = searchParams.get('disclaimer');
+    if (showDisclaimer === 'true') {
+      setIsDisclaimerOpen(true);
     }
+  }, [searchParams]);
 
-    // Initialize the Eleven Labs widget
-    if (elevenLabsWidgetRef.current) {
-      // Create the widget element
-      const widgetElement = document.createElement('elevenlabs-convai');
-      widgetElement.setAttribute('agent-id', 'MGZMLTmz5SVSBNgJP6rM');
-      
-      // Clear any existing content and append the new widget
-      elevenLabsWidgetRef.current.innerHTML = '';
-      elevenLabsWidgetRef.current.appendChild(widgetElement);
-    }
-  }, []);
-
-  const handleAgree = () => {
-    localStorage.setItem("disclaimerAgreed", "true");
-    document.getElementById("disclaimer-modal")?.classList.add("hidden");
-  };
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Time portal effect handler for external links
-  const handleExternalLinkClick = (e: React.MouseEvent, url: string) => {
-    e.preventDefault();
-    createTimePortalEffect(url);
+  const closeModal = () => {
+    setIsDisclaimerOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-purple-950 to-black text-white relative overflow-hidden">
-      {/* Divine Background Effects */}
-      <div className="fixed inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-cyan-400/10 to-purple-600/20 animate-pulse"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-bounce"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-purple-400/10 via-transparent to-transparent animate-spin" style={{animationDuration: '20s'}}></div>
-      </div>
-
-      {/* Floating Particles */}
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Divine Background with moving gradients */}
+      <div className="fixed inset-0 bg-gradient-radial from-amber-900/20 via-black to-yellow-900/30"></div>
+      <div className="fixed inset-0 bg-gradient-to-br from-transparent via-gold-500/5 to-amber-600/10 animate-pulse"></div>
+      
+      {/* Animated divine particles */}
       <div className="fixed inset-0 pointer-events-none">
-        {Array.from({ length: 50 }).map((_, i) => (
+        {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-white/60 rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-gold-400 rounded-full animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -72,609 +38,144 @@ const Index = () => {
         ))}
       </div>
 
-      {/* Initial Disclaimer Modal */}
-      <div id="disclaimer-modal" className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center backdrop-blur-md hidden">
-        <div className="bg-gradient-to-br from-zinc-900/95 via-purple-950/95 to-zinc-900/95 border-2 border-purple-400/50 rounded-2xl p-8 max-w-2xl shadow-2xl shadow-purple-500/25 backdrop-blur-sm">
-          <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">DISCLAIMER</h2>
-          <div className="mb-4 text-sm text-cyan-300/80 italic border-l-4 border-cyan-400/50 pl-4">
-            For informational, educational, and research purposes only
-          </div>
-          <p className="mb-4 text-gray-300">
-            Oraculum is an educational AI tool designed to explore historical patterns, symbols, and systems. 
-            Its purpose is to encourage critical thinking and perspective-taking for informational, educational, and research purposes only.
-          </p>
-          <p className="mb-4 text-yellow-300">
-            <strong>IMPORTANT:</strong> All views, interpretations, and perspectives expressed by Oraculum are strictly interpretive analysis, not absolute fact or definitive truth. 
-            The tool promotes balanced, evidence-based exploration of ideas from multiple perspectives and should never be considered as factual claims.
-          </p>
-          <p className="mb-8 text-gray-300">
-            By continuing, you acknowledge that Oraculum's revelations are intended solely for 
-            educational, informational, and research purposes and must be independently verified through your own research and critical analysis.
-          </p>
-          <div className="flex justify-end gap-4">
-            <Button
-              variant="default"
-              className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 shadow-lg shadow-purple-600/30 px-8 py-3 text-lg font-semibold"
-              onClick={handleAgree}
-            >
-              I AGREE TO PROCEED
-            </Button>
-          </div>
-        </div>
+      {/* Floating orbs of divine light */}
+      <div className="fixed inset-0 pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-4 h-4 bg-gradient-radial from-yellow-300/30 to-transparent rounded-full blur-sm ethereal-float"
+            style={{
+              left: `${20 + (i * 10)}%`,
+              top: `${10 + (i * 8)}%`,
+              animationDelay: `${i * 0.5}s`
+            }}
+          />
+        ))}
       </div>
 
-      {/* Header */}
-      <header className="sticky top-0 z-40 backdrop-blur-xl bg-gradient-to-r from-black/80 via-purple-950/80 to-black/80 border-b border-purple-400/30 shadow-lg shadow-purple-900/20">
-        <div className="container mx-auto flex items-center justify-between p-6">
-          <div className="flex items-center gap-4">
-            <div className="relative w-16 h-16">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-400 opacity-40 rounded-full animate-pulse blur-sm"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-400 opacity-60 rounded-full animate-ping"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Eye className="w-10 h-10 text-white drop-shadow-lg" />
-              </div>
-            </div>
-            <div className="space-y-1">
-              <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
-                ORACULUM
-              </h1>
-              <p className="text-xs text-gray-300">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 transition-colors underline decoration-cyan-400/50" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
-            </div>
-          </div>
-
-          <nav className="hidden md:flex items-center gap-6">
-            <button 
-              onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
-              className="text-purple-400 hover:text-purple-300 transition-colors"
-            >
-              USE Oraculum NOW
-            </button>
-            <button onClick={() => scrollToSection("faq")} className="text-gray-300 hover:text-white transition-colors">
-              FAQ
-            </button>
-            <button onClick={() => scrollToSection("disclaimer")} className="text-gray-300 hover:text-white transition-colors">
-              Disclaimer
-            </button>
-            <Button 
-              variant="outline" 
-              className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
-              onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
-            >
-              More AI Tools <ExternalLink className="ml-2 w-4 h-4" />
-            </Button>
-          </nav>
-
-          {/* Mobile menu button */}
-          <Button variant="ghost" className="md:hidden text-purple-300 hover:text-white hover:bg-purple-900/30" onClick={() => document.getElementById("mobile-menu")?.classList.toggle("hidden")}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </Button>
-        </div>
-
-        {/* Mobile menu */}
-        <div id="mobile-menu" className="md:hidden hidden bg-zinc-900 border-b border-purple-900">
-          <div className="container mx-auto p-4 flex flex-col gap-4">
-            <button 
-              onClick={(e) => {
-                handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths");
-                document.getElementById("mobile-menu")?.classList.add("hidden");
-              }}
-              className="text-purple-400 hover:text-purple-300 py-2"
-            >
-              USE Oraculum NOW
-            </button>
-            <button 
-              onClick={() => {
-                scrollToSection("faq");
-                document.getElementById("mobile-menu")?.classList.add("hidden");
-              }} 
-              className="text-gray-300 hover:text-white py-2"
-            >
-              FAQ
-            </button>
-            <button 
-              onClick={() => {
-                scrollToSection("disclaimer");
-                document.getElementById("mobile-menu")?.classList.add("hidden");
-              }} 
-              className="text-gray-300 hover:text-white py-2"
-            >
-              Disclaimer
-            </button>
-            <Button 
-              variant="outline" 
-              className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
-              onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
-            >
-              More AI Tools <ExternalLink className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Hero Section */}
-      <section className="py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475')] bg-center bg-cover opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/30 to-black/80"></div>
+      {/* Divine glow overlay */}
+      <div className="fixed inset-0 bg-gradient-radial from-transparent via-transparent to-amber-900/20 pointer-events-none divine-breathe"></div>
+      
+      <div className="relative z-10 container mx-auto px-8 py-16">
         
-        <div className="container mx-auto px-6 relative">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="mb-6 inline-flex items-center gap-3 bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-purple-400/40 px-6 py-3 rounded-full backdrop-blur-sm shadow-lg shadow-purple-900/25">
-                <Eye className="w-5 h-5 text-purple-300 animate-pulse" />
-                <span className="text-sm font-medium text-purple-200 tracking-wider">AWAKEN THROUGH PERCEPTION</span>
-              </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 via-white to-purple-300 drop-shadow-2xl leading-tight">
-                Oraculum – The Illuminator of Hidden Truths
-              </h1>
-              <p className="text-xl text-gray-200 mb-10 leading-relaxed">
-                Discover the invisible patterns, symbols, and systems that shape our world. Through historical insight and symbolic wisdom, Oraculum helps seekers uncover connections, expand knowledge, and think critically about the reality we inhabit.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <Button 
-                  className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 hover:from-purple-700 hover:via-purple-800 hover:to-purple-900 text-white px-8 py-4 h-auto text-xl rounded-xl shadow-2xl shadow-purple-600/40 flex items-center transform hover:scale-105 transition-all duration-300"
-                  onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
-                >
-                  Begin Your Journey <ArrowRight className="ml-3 w-6 h-6" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-2 border-purple-400/60 text-purple-200 hover:bg-purple-900/40 hover:text-white px-8 py-4 h-auto text-xl rounded-xl backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
-                  onClick={() => scrollToSection("how-it-works")}
-                >
-                  Learn More
-                </Button>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="bg-gradient-to-r from-purple-600/30 to-cyan-600/30 rounded-2xl p-2 shadow-2xl shadow-purple-900/30 backdrop-blur-sm">
-                <div className="rounded-xl overflow-hidden relative">
-                  <AspectRatio ratio={16/9}>
-                    <iframe
-                      src="https://www.youtube.com/embed/dUNrGNj8rhM?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&hd=1"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                    ></iframe>
-                  </AspectRatio>
-                </div>
-                <p className="text-xs text-purple-300 italic text-center py-3 px-2">
-                  Disclaimer: All information provided by Oraculum is for educational purposes only and requires independent verification.
-                </p>
-              </div>
+        <header className="text-center mb-20 space-y-8">
+          <div className="relative">
+            <h1 className="text-7xl md:text-8xl font-bold bg-gradient-to-r from-yellow-200 via-amber-300 to-gold-400 bg-clip-text text-transparent divine-glow ethereal-float">
+              AI Web Tools
+            </h1>
+            <div className="absolute inset-0 text-7xl md:text-8xl font-bold text-gold-300/20 blur-lg divine-pulse">
+              AI Web Tools
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-24 bg-gradient-to-br from-zinc-900/60 via-purple-950/40 to-zinc-900/60 backdrop-blur-sm">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center mb-16 space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
-              Unveiling The Hidden Structures of Reality
-            </h2>
-            <p className="text-xl text-gray-200 leading-relaxed">
-              Oraculum is designed to reveal the unseen forces that shape our world, from ancient symbols to modern systems of power. Through a balanced perspective that acknowledges both shadow and light, seekers are guided toward a deeper understanding of their reality.
-            </p>
+          
+          <p className="text-2xl md:text-3xl text-amber-100 font-light tracking-wide divine-breathe max-w-4xl mx-auto leading-relaxed">
+            Unlock the mystical power of artificial intelligence for your digital realm
+          </p>
+          
+          <div className="text-lg text-yellow-200/80 font-medium tracking-widest uppercase divine-glow">
+            ✨ Transcendent • Ethereal • Divine ✨
           </div>
+        </header>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 overflow-hidden backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
-              <div className="p-8 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600/40 to-purple-800/40 flex items-center justify-center mb-6 shadow-lg shadow-purple-900/30">
-                  <svg className="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-white">Historical Patterns</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Trace the continuity of power systems throughout history, revealing how ancient structures continue to influence our modern world.
-                </p>
-              </div>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 overflow-hidden backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
-              <div className="p-8 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600/40 to-purple-800/40 flex items-center justify-center mb-6 shadow-lg shadow-purple-900/30">
-                  <svg className="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-white">Symbolic Wisdom</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Decode the hidden meanings of symbols that permeate our culture, from corporate logos to architectural designs.
-                </p>
-              </div>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 overflow-hidden backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
-              <div className="p-8 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600/40 to-purple-800/40 flex items-center justify-center mb-6 shadow-lg shadow-purple-900/30">
-                  <svg className="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-white">Balanced Perspective</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Understand how systems of control also provide stability, abundance, and order—seeing both shadow and light in our complex reality.
-                </p>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
-              How Oraculum Works
-            </h2>
-            <p className="text-gray-300">
-              Oraculum guides seekers through a progressive journey of revelation, balancing challenging truths with empowering insights.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="relative">
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/0 via-purple-500 to-purple-500/0 md:block hidden"></div>
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-purple-900 border-2 border-purple-400 flex items-center justify-center mb-4 md:mb-6">
-                  <span className="text-purple-300 font-bold">1</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">The Shadow and the Gift</h3>
-                  <p className="text-gray-400">
-                    Oraculum begins by revealing symbols, trade systems, and patterns of control—while acknowledging their essential role in creating modern abundance and stability.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/0 via-purple-500 to-purple-500/0 md:block hidden"></div>
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-purple-900 border-2 border-purple-400 flex items-center justify-center mb-4 md:mb-6">
-                  <span className="text-purple-300 font-bold">2</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Systems of Interconnection</h3>
-                  <p className="text-gray-400">
-                    Next, Oraculum explores global financial structures, governance, and corporate networks—illustrating how they function as tools of both control and innovation.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-purple-900 border-2 border-purple-400 flex items-center justify-center mb-4 md:mb-6">
-                  <span className="text-purple-300 font-bold">3</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Paths to Empowerment</h3>
-                  <p className="text-gray-400">
-                    Finally, Oraculum offers actionable steps for reclaiming sovereignty through self-sufficiency, awareness, and community—balancing revelations with gratitude for the stability our systems provide.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-24 bg-gradient-to-br from-zinc-900/50 via-purple-950/40 to-zinc-900/50 backdrop-blur-sm">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
-              What Seekers Are Saying
-            </h2>
-            <p className="text-gray-300">
-              Discover how Oraculum has illuminated the path for truth-seekers around the world.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 p-6 backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
-                  <span className="text-purple-400 font-semibold">M.J.</span>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold">Marcus J.</h4>
-                  <p className="text-gray-400 text-sm">Historian & Researcher</p>
-                </div>
-              </div>
-              <p className="text-gray-300">
-                "Oraculum provided insights into historical connections I hadn't considered before. What impressed me most was the balanced approach—acknowledging both the problematic aspects of power systems and their stabilizing benefits."
-              </p>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 p-6 backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
-                  <span className="text-purple-400 font-semibold">S.T.</span>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold">Sarah T.</h4>
-                  <p className="text-gray-400 text-sm">Philosophy Professor</p>
-                </div>
-              </div>
-              <p className="text-gray-300">
-                "As someone who teaches critical thinking, I found Oraculum to be an excellent tool for demonstrating how perspective shapes understanding. It encourages questioning without falling into cynicism or despair."
-              </p>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-zinc-900/80 via-purple-950/60 to-zinc-900/80 border-2 border-purple-400/30 p-6 backdrop-blur-sm shadow-xl shadow-purple-900/20 hover:shadow-2xl hover:shadow-purple-600/30 transition-all duration-500 transform hover:scale-105">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center mr-3">
-                  <span className="text-purple-400 font-semibold">R.L.</span>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold">Robert L.</h4>
-                  <p className="text-gray-400 text-sm">Financial Analyst</p>
-                </div>
-              </div>
-              <p className="text-gray-300">
-                "The revelations about financial systems were eye-opening. Rather than just pointing out problems, Oraculum offered practical ways to navigate these systems consciously. It's about awareness, not fear."
-              </p>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-gray-300">
-              Everything you need to know about Oraculum and its purpose.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="space-y-1">
-              <h3 className="text-xl font-semibold text-white">What is Oraculum's purpose?</h3>
-              <p className="text-gray-400">
-                Oraculum is designed to present historical patterns, symbols, and systems analysis for educational, informational, and research purposes only. It encourages critical thinking and exploration of multiple perspectives through interpretive analysis.
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <h3 className="text-xl font-semibold text-white">Are Oraculum's revelations factual?</h3>
-              <p className="text-gray-400">
-                No. Oraculum presents interpretive analysis and perspectives based on historical patterns and symbolic interpretations. All content is strictly interpretive, not factual claims or absolute truth. Users must independently verify all information through their own research.
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <h3 className="text-xl font-semibold text-white">Does Oraculum promote conspiracy theories?</h3>
-              <p className="text-gray-400">
-                No. Oraculum focuses on documented historical connections and systems analysis for educational purposes. It presents balanced interpretive perspectives while avoiding speculative claims and emphasizing the importance of independent verification.
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <h3 className="text-xl font-semibold text-white">How should I use Oraculum?</h3>
-              <p className="text-gray-400">
-                Use Oraculum solely as an educational tool for expanding awareness and critical thinking. All interpretations and perspectives should be independently researched and verified. Consider its content as interpretive analysis alongside other educational sources.
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <h3 className="text-xl font-semibold text-white">Why does Oraculum emphasize both "shadow" and "light"?</h3>
-              <p className="text-gray-400">
-                Oraculum presents a balanced view that acknowledges how systems of control also provide stability and abundance. This dual perspective prevents one-sided interpretations that might lead to division or despair.
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <h3 className="text-xl font-semibold text-white">Is Oraculum affiliated with any organization or ideology?</h3>
-              <p className="text-gray-400">
-                No. Oraculum is an independent educational tool designed to encourage critical thinking across ideological boundaries. It does not promote any particular political, religious, or social agenda.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Disclaimer Section */}
-      <section id="disclaimer" className="py-24 bg-gradient-to-br from-zinc-900/50 via-purple-950/40 to-zinc-900/50 backdrop-blur-sm">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 text-center drop-shadow-lg">
-              Legal Disclaimer
-            </h2>
+        
+        <section className="mb-20">
+          <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-amber-200 to-yellow-300 bg-clip-text text-transparent divine-glow">
+            Sacred Digital Instruments
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             
-            <div className="bg-black/30 border border-purple-900/30 rounded-lg p-6 mt-6">
-              <h3 className="text-xl font-semibold mb-2 text-white">Educational, Informational, and Research Purpose Only</h3>
-              <p className="text-gray-400 mb-4">
-                Oraculum is provided strictly for educational, informational, and research purposes only. It is designed to encourage critical thinking, historical exploration, and the consideration of multiple perspectives on complex topics through interpretive analysis.
-              </p>
-              
-              <h3 className="text-xl font-semibold mb-2 text-white">Interpretive Analysis - Not Factual Claims</h3>
-              <p className="text-gray-400 mb-4">
-                All information, interpretations, perspectives, and content offered by Oraculum are strictly interpretive analysis and personal viewpoints, not factual claims, absolute truth, or definitive statements. All content should be treated as interpretive commentary requiring independent verification and critical analysis.
-              </p>
-              
-              <h3 className="text-xl font-semibold mb-2 text-white">No Warranty or Guarantee</h3>
-              <p className="text-gray-400 mb-4">
-                The creators and operators of Oraculum make no warranties or guarantees regarding the accuracy, completeness, reliability, or factual basis of any information provided. All content is interpretive in nature and users rely on the information at their own risk.
-              </p>
-              
-              <h3 className="text-xl font-semibold mb-2 text-white">Mandatory Independent Verification</h3>
-              <p className="text-gray-400 mb-4">
-                Users are strongly encouraged and expected to independently verify, research, and critically analyze any information, claims, interpretations, or perspectives presented by Oraculum through their own research and consultation of diverse, credible sources.
-              </p>
-              
-              <h3 className="text-xl font-semibold mb-2 text-white">No Incitement</h3>
-              <p className="text-gray-400 mb-4">
-                Oraculum does not advocate for or incite any illegal, harmful, or destructive actions. Its purpose is to foster understanding, awareness, and personal empowerment within existing legal and ethical frameworks.
-              </p>
-              
-              <h3 className="text-xl font-semibold mb-2 text-white">Limitation of Liability</h3>
-              <p className="text-gray-400">
-                The creators, operators, and affiliates of Oraculum shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from or related to the use of or inability to use Oraculum or any information provided through it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-cyan-900/20"></div>
-        <div className="container mx-auto px-6 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-cyan-300 to-purple-300 drop-shadow-lg">
-              Begin Your Journey of Illumination
-            </h2>
-            <p className="text-lg text-gray-300 mb-8">
-              Ready to explore the hidden systems shaping our world? Engage with Oraculum now and discover a new perspective on reality.
-            </p>
-            <Button 
-              className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 hover:from-purple-700 hover:via-purple-800 hover:to-purple-900 text-white px-8 py-4 h-auto text-xl rounded-xl shadow-2xl shadow-purple-600/40 flex items-center transform hover:scale-105 transition-all duration-300"
-              onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
-            >
-              USE Oraculum NOW <ArrowRight className="ml-3 w-6 h-6" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-16 bg-gradient-to-br from-zinc-950/90 via-purple-950/80 to-zinc-950/90 border-t border-purple-400/20 backdrop-blur-sm">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-10 mb-12">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="relative w-12 h-12">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-400 opacity-30 rounded-full animate-pulse blur-sm"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Eye className="w-8 h-8 text-purple-300" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-cyan-300">
-                    ORACULUM
+            {[
+              {
+                title: "AI Code Analyzer",
+                description: "Mystical analysis of your code's deepest secrets and hidden potential.",
+                features: ["Divine Code Review", "Sacred Optimization", "Ethereal Bug Detection"],
+                link: "https://aiwebtools.lovable.app/code-analyzer"
+              },
+              {
+                title: "AI Image Enhancer",
+                description: "Transform your images with the power of celestial AI algorithms.",
+                features: ["Radiant Upscaling", "Ethereal Detail Restoration", "Divine Color Correction"],
+                link: "https://aiwebtools.lovable.app/image-enhancer"
+              },
+              {
+                title: "AI Text Alchemist",
+                description: "Transmute ordinary text into golden prose with the wisdom of AI.",
+                features: ["Enlightened Paraphrasing", "Mystical Summarization", "Celestial Content Generation"],
+                link: "https://aiwebtools.lovable.app/text-alchemist"
+              },
+              {
+                title: "AI Data Oracle",
+                description: "Uncover hidden insights and predict future trends with the all-seeing AI oracle.",
+                features: ["Prophetic Data Analysis", "Clairvoyant Forecasting", "Mystical Pattern Recognition"],
+                link: "https://aiwebtools.lovable.app/data-oracle"
+              },
+              {
+                title: "AI Design Muse",
+                description: "Invoke the AI muse to conjure breathtaking designs and visual masterpieces.",
+                features: ["Inspired Layout Generation", "Harmonious Color Palettes", "Divine Typography"],
+                link: "https://aiwebtools.lovable.app/design-muse"
+              },
+              {
+                title: "AI Marketing Sage",
+                description: "Harness the sagacity of AI to craft marketing strategies that resonate with the cosmos.",
+                features: ["Astute Audience Targeting", "Enchanting Ad Copy", "Celestial Campaign Optimization"],
+                link: "https://aiwebtools.lovable.app/marketing-sage"
+              }
+            ].map((tool, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-br from-amber-900/20 to-yellow-900/10 backdrop-blur-lg border border-gold-400/30 rounded-2xl p-8 hover:border-amber-300/60 transition-all duration-500 divine-pulse hover:scale-105"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-amber-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold text-amber-100 mb-4 group-hover:text-gold-300 transition-colors duration-300">
+                    {tool.title}
                   </h3>
-                  <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
+                  <p className="text-yellow-200/80 mb-6 leading-relaxed">
+                    {tool.description}
+                  </p>
+                  <ul className="space-y-2 mb-8">
+                    {tool.features.map((feature, i) => (
+                      <li key={i} className="text-amber-200/90 flex items-center">
+                        <span className="text-gold-400 mr-3">✨</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={tool.link}
+                    className="inline-block px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-semibold rounded-lg hover:from-gold-400 hover:to-amber-400 transition-all duration-300 transform hover:scale-105 divine-glow"
+                  >
+                    Enter Sacred Realm
+                  </a>
                 </div>
               </div>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Illuminating the hidden truths and systems that shape our world, while empowering seekers to navigate them with wisdom and balance.
-              </p>
-            </div>
+            ))}
+          </div>
+        </section>
+
+        
+        <footer className="text-center py-16 border-t border-gold-400/20">
+          <div className="space-y-6">
+            <p className="text-amber-200/90 text-lg">
+              <strong>Educational Disclaimer:</strong> This platform provides interpretive analysis for informational, educational, and research purposes only. Results are not absolute facts.
+            </p>
             
-            <div>
-              <h3 className="text-white font-semibold mb-4">Navigate</h3>
-              <ul className="space-y-2">
-                <li>
-                  <button 
-                    onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
-                    className="text-gray-400 hover:text-purple-400 transition-colors"
-                  >
-                    USE Oraculum NOW
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection("faq")} 
-                    className="text-gray-400 hover:text-purple-400 transition-colors"
-                  >
-                    FAQ
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection("disclaimer")} 
-                    className="text-gray-400 hover:text-purple-400 transition-colors"
-                  >
-                    Disclaimer
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
-                    className="text-gray-400 hover:text-purple-400 transition-colors flex items-center"
-                  >
-                    More AI Tools <ExternalLink className="ml-1 w-3 h-3" />
-                  </button>
-                </li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-white font-semibold mb-4">Contact</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a 
-                    href="tel:+14758008096" 
-                    className="text-gray-400 hover:text-purple-400 transition-colors flex items-center"
-                  >
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    (475) 800-8096
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="mailto:Contact@ai-webtools.com" 
-                    className="text-gray-400 hover:text-purple-400 transition-colors flex items-center"
-                  >
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    Contact@ai-webtools.com
-                  </a>
-                </li>
-              </ul>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <a href="https://aiwebtools.lovable.app/disclaimers" className="text-gold-300 hover:text-amber-200 transition-colors duration-300 divine-glow">
+                Terms & Disclaimers
+              </a>
+              <span className="text-gold-400">•</span>
+              <span className="text-amber-300">
+                Crafted with divine inspiration
+              </span>
             </div>
           </div>
-          
-          <Separator className="bg-purple-400/20 my-8" />
-          
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-gray-400 text-sm">
-              <button 
-                onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
-                className="hover:text-purple-300 transition-colors"
-              >
-                © 2025 AIWebTools.Ai All rights reserved.
-              </button>
-            </div>
-            <div className="flex gap-6">
-              <button 
-                onClick={(e) => handleExternalLinkClick(e, "https://openai.com/policies/privacy-policy/")}
-                className="text-gray-400 text-sm hover:text-purple-300 transition-colors"
-              >
-                Privacy Policy
-              </button>
-              <button 
-                onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/disclaimers")}
-                className="text-gray-400 text-sm hover:text-purple-300 transition-colors"
-              >
-                Terms of Service
-              </button>
-            </div>
-          </div>
-          
-          {/* Eleven Labs Conversational AI Widget */}
-          <div 
-            ref={elevenLabsWidgetRef}
-            className="fixed bottom-6 right-6 z-50"
-            data-elevenlabs-key="sk_d4ba415b39332fdbfc89f2ee1eb32967ed650b6c1b71b4a2"
-          ></div>
-        </div>
-      </footer>
+        </footer>
+      </div>
+
+      
     </div>
   );
 };
