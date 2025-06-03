@@ -48,6 +48,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* Schema.org microdata for SEO */}
+      <div itemScope itemType="https://schema.org/WebPage" style={{ display: 'none' }}>
+        <span itemProp="name">Oraculum - Free AI Tools by AIWEBTOOLS.AI</span>
+        <span itemProp="description">Advanced AI tool for revealing hidden patterns, educational research, and critical thinking development</span>
+      </div>
+
       {/* Initial Disclaimer Modal */}
       <div id="disclaimer-modal" className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center backdrop-blur-sm hidden">
         <div className="bg-zinc-900 border border-purple-500 rounded-lg p-6 max-w-2xl">
@@ -90,7 +96,7 @@ const Index = () => {
               <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                 ORACULUM
               </h1>
-              <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
+              <p className="text-xs text-gray-400">Free AI Tools by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AIWEBTOOLS.AI</a></p>
             </div>
           </div>
 
@@ -112,7 +118,7 @@ const Index = () => {
               className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
               onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
             >
-              More AI Tools <ExternalLink className="ml-2 w-4 h-4" />
+              More Free AI Tools <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
           </nav>
 
@@ -159,7 +165,7 @@ const Index = () => {
               className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
               onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
             >
-              More AI Tools <ExternalLink className="ml-2 w-4 h-4" />
+              More Free AI Tools <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
@@ -175,27 +181,30 @@ const Index = () => {
             <div>
               <div className="mb-4 inline-flex items-center gap-2 bg-purple-900/30 border border-purple-700/30 px-3 py-1 rounded-full">
                 <Eye className="w-4 h-4 text-purple-400" />
-                <span className="text-sm text-purple-300">AWAKEN THROUGH PERCEPTION</span>
+                <span className="text-sm text-purple-300">FREE AI TOOLS FOR EDUCATION</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400">
-                Oraculum – The Illuminator of Hidden Truths
+                Oraculum – Free AI Tools by AIWEBTOOLS.AI
               </h1>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-white">
+                The Illuminator of Hidden Truths
+              </h2>
               <p className="text-lg text-gray-300 mb-8">
-                Discover the invisible patterns, symbols, and systems that shape our world. Through historical insight and symbolic wisdom, Oraculum helps seekers uncover connections, expand knowledge, and think critically about the reality we inhabit.
+                Discover the invisible patterns, symbols, and systems that shape our world with our free AI tools. Through historical insight and symbolic wisdom, Oraculum helps seekers uncover connections, expand knowledge, and think critically about the reality we inhabit. Part of the comprehensive AIWEBTOOLS.AI platform featuring 100+ free artificial intelligence tools.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 h-auto text-lg rounded-lg shadow-lg shadow-purple-600/20 flex items-center"
                   onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
                 >
-                  Begin Your Journey <ArrowRight className="ml-2" />
+                  Start Using Free AI Tool <ArrowRight className="ml-2" />
                 </Button>
                 <Button 
                   variant="outline" 
                   className="border-purple-500 text-purple-400 hover:bg-purple-900/30 px-6 py-3 h-auto text-lg rounded-lg"
                   onClick={() => scrollToSection("how-it-works")}
                 >
-                  Learn More
+                  Learn More About AI Tools
                 </Button>
               </div>
             </div>
@@ -208,11 +217,12 @@ const Index = () => {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="absolute inset-0 w-full h-full"
+                      title="Oraculum AI Tool Demo - Free Educational AI by AIWEBTOOLS.AI"
                     ></iframe>
                   </AspectRatio>
                 </div>
                 <p className="text-xs text-purple-400 italic text-center py-2 px-1">
-                  Disclaimer: All information provided by Oraculum is for educational purposes only and requires independent verification.
+                  Educational AI tool for research purposes only - Free to use at AIWEBTOOLS.AI
                 </p>
               </div>
             </div>
@@ -220,15 +230,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - AI Tools Features */}
       <section className="py-16 bg-zinc-900/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-              Unveiling The Hidden Structures of Reality
+              Advanced Free AI Tools for Research & Education
             </h2>
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              Unveiling The Hidden Structures of Reality with Artificial Intelligence
+            </h3>
             <p className="text-gray-300">
-              Oraculum is designed to reveal the unseen forces that shape our world, from ancient symbols to modern systems of power. Through a balanced perspective that acknowledges both shadow and light, seekers are guided toward a deeper understanding of their reality.
+              Oraculum is designed to reveal the unseen forces that shape our world, from ancient symbols to modern systems of power. Through a balanced perspective that acknowledges both shadow and light, seekers are guided toward a deeper understanding of their reality using cutting-edge AI technology from AIWEBTOOLS.AI.
             </p>
           </div>
 
@@ -240,9 +253,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Historical Patterns</h3>
+                <h3 className="text-xl font-semibold mb-2 text-white">AI-Powered Historical Analysis</h3>
                 <p className="text-gray-400">
-                  Trace the continuity of power systems throughout history, revealing how ancient structures continue to influence our modern world.
+                  Trace the continuity of power systems throughout history with our advanced AI algorithms, revealing how ancient structures continue to influence our modern world through pattern recognition.
                 </p>
               </div>
             </Card>
@@ -254,9 +267,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Symbolic Wisdom</h3>
+                <h3 className="text-xl font-semibold mb-2 text-white">Intelligent Symbol Recognition</h3>
                 <p className="text-gray-400">
-                  Decode the hidden meanings of symbols that permeate our culture, from corporate logos to architectural designs.
+                  Decode the hidden meanings of symbols that permeate our culture using machine learning, from corporate logos to architectural designs, with our free AI-powered analysis tools.
                 </p>
               </div>
             </Card>
@@ -268,9 +281,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Balanced Perspective</h3>
+                <h3 className="text-xl font-semibold mb-2 text-white">AI-Enhanced Critical Thinking</h3>
                 <p className="text-gray-400">
-                  Understand how systems of control also provide stability, abundance, and order—seeing both shadow and light in our complex reality.
+                  Understand how systems of control also provide stability, abundance, and order—seeing both shadow and light in our complex reality through balanced AI-assisted perspective analysis.
                 </p>
               </div>
             </Card>
@@ -283,10 +296,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-              How Oraculum Works
+              How Our Free AI Tools Work
             </h2>
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              Advanced Artificial Intelligence for Educational Research
+            </h3>
             <p className="text-gray-300">
-              Oraculum guides seekers through a progressive journey of revelation, balancing challenging truths with empowering insights.
+              Oraculum guides seekers through a progressive journey of revelation using state-of-the-art AI technology, balancing challenging truths with empowering insights through our comprehensive AIWEBTOOLS.AI platform.
             </p>
           </div>
 
@@ -343,10 +359,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-              What Seekers Are Saying
+              What Users Say About Our Free AI Tools
             </h2>
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              AIWEBTOOLS.AI User Reviews & Testimonials
+            </h3>
             <p className="text-gray-300">
-              Discover how Oraculum has illuminated the path for truth-seekers around the world.
+              Discover how our free AI tools platform has illuminated the path for truth-seekers, researchers, and students around the world.
             </p>
           </div>
 
@@ -404,10 +423,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-              Frequently Asked Questions
+              Frequently Asked Questions About Our AI Tools
             </h2>
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              Everything About AIWEBTOOLS.AI & Free AI Tools
+            </h3>
             <p className="text-gray-300">
-              Everything you need to know about Oraculum and its purpose.
+              Everything you need to know about Oraculum, our free AI tools platform, and AIWEBTOOLS.AI's purpose in advancing artificial intelligence education.
             </p>
           </div>
 
@@ -462,7 +484,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 text-center">
-              Legal Disclaimer
+              Legal Disclaimer - Free AI Tools Terms
             </h2>
             
             <div className="bg-black/30 border border-purple-900/30 rounded-lg p-6 mt-6">
@@ -506,16 +528,19 @@ const Index = () => {
         <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-              Begin Your Journey of Illumination
+              Start Using Free AI Tools Today
             </h2>
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              Begin Your Journey with AIWEBTOOLS.AI
+            </h3>
             <p className="text-lg text-gray-300 mb-8">
-              Ready to explore the hidden systems shaping our world? Engage with Oraculum now and discover a new perspective on reality.
+              Ready to explore the hidden systems shaping our world with cutting-edge artificial intelligence? Engage with Oraculum and discover our complete collection of 100+ free AI tools now.
             </p>
             <Button 
               className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 h-auto text-lg rounded-lg shadow-lg shadow-purple-600/20"
               onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
             >
-              USE Oraculum NOW <ArrowRight className="ml-2" />
+              USE Free AI Tools NOW <ArrowRight className="ml-2" />
             </Button>
           </div>
         </div>
@@ -537,23 +562,23 @@ const Index = () => {
                   <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                     ORACULUM
                   </h3>
-                  <p className="text-xs text-gray-400">Presented by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AiWebTools.Ai</a></p>
+                  <p className="text-xs text-gray-400">Free AI Tools by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AIWEBTOOLS.AI</a></p>
                 </div>
               </div>
               <p className="text-gray-400 text-sm">
-                Illuminating the hidden truths and systems that shape our world, while empowering seekers to navigate them with wisdom and balance.
+                Illuminating the hidden truths and systems that shape our world with advanced AI technology, while empowering seekers to navigate them with wisdom and balance. Part of the comprehensive free AI tools platform at AIWEBTOOLS.AI.
               </p>
             </div>
             
             <div>
-              <h3 className="text-white font-semibold mb-4">Navigate</h3>
+              <h3 className="text-white font-semibold mb-4">Free AI Tools Navigation</h3>
               <ul className="space-y-2">
                 <li>
                   <button 
                     onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
                     className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
-                    USE Oraculum NOW
+                    USE Oraculum AI Tool
                   </button>
                 </li>
                 <li>
@@ -561,7 +586,7 @@ const Index = () => {
                     onClick={() => scrollToSection("faq")} 
                     className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
-                    FAQ
+                    AI Tools FAQ
                   </button>
                 </li>
                 <li>
@@ -569,7 +594,7 @@ const Index = () => {
                     onClick={() => scrollToSection("disclaimer")} 
                     className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
-                    Disclaimer
+                    AI Tools Disclaimer
                   </button>
                 </li>
                 <li>
@@ -577,14 +602,14 @@ const Index = () => {
                     onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
                     className="text-gray-400 hover:text-purple-400 transition-colors flex items-center"
                   >
-                    More AI Tools <ExternalLink className="ml-1 w-3 h-3" />
+                    100+ More Free AI Tools <ExternalLink className="ml-1 w-3 h-3" />
                   </button>
                 </li>
               </ul>
             </div>
             
             <div>
-              <h3 className="text-white font-semibold mb-4">Contact</h3>
+              <h3 className="text-white font-semibold mb-4">Contact AIWEBTOOLS.AI</h3>
               <ul className="space-y-2">
                 <li>
                   <a 
@@ -620,7 +645,7 @@ const Index = () => {
                 onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
                 className="hover:text-purple-400 transition-colors"
               >
-                © 2025 AIWebTools.Ai All rights reserved.
+                © 2025 AIWEBTOOLS.AI - Free AI Tools Platform. All rights reserved.
               </button>
             </div>
             <div className="flex gap-4">
