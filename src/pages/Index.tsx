@@ -189,9 +189,14 @@ const Index = () => {
               <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-white">
                 The Illuminator of Hidden Truths
               </h2>
-              <p className="text-lg text-gray-300 mb-8">
+              <p className="text-lg text-gray-300 mb-4">
                 Discover the invisible patterns, symbols, and systems that shape our world with our free AI tools. Through historical insight and symbolic wisdom, Oraculum helps seekers uncover connections, expand knowledge, and think critically about the reality we inhabit. Part of the comprehensive AIWEBTOOLS.AI platform featuring 100+ free artificial intelligence tools.
               </p>
+              <div className="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-4 mb-8">
+                <p className="text-sm text-yellow-300">
+                  <strong>📚 EDUCATIONAL USE ONLY:</strong> This free AI tool is designed strictly for educational research, critical thinking development, and informational purposes. All content represents interpretive analysis and should be independently verified.
+                </p>
+              </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 h-auto text-lg rounded-lg shadow-lg shadow-purple-600/20 flex items-center"
@@ -240,9 +245,14 @@ const Index = () => {
             <h3 className="text-xl font-semibold mb-4 text-white">
               Unveiling The Hidden Structures of Reality with Artificial Intelligence
             </h3>
-            <p className="text-gray-300">
-              Oraculum is designed to reveal the unseen forces that shape our world, from ancient symbols to modern systems of power. Through a balanced perspective that acknowledges both shadow and light, seekers are guided toward a deeper understanding of their reality using cutting-edge AI technology from AIWEBTOOLS.AI.
+            <p className="text-gray-300 mb-4">
+              Oraculum is an innovative educational AI tool designed to reveal the unseen forces that shape our world, from ancient symbols to modern systems of power. Through a balanced perspective that acknowledges both shadow and light, seekers are guided toward a deeper understanding of their reality using cutting-edge AI technology from AIWEBTOOLS.AI.
             </p>
+            <div className="bg-cyan-900/20 border border-cyan-600/30 rounded-lg p-4 mb-6">
+              <p className="text-sm text-cyan-300 text-center">
+                <strong>ℹ️ INFORMATION & RESEARCH:</strong> All insights provided by this AI tool are for educational exploration and should not be considered definitive facts. Users are encouraged to conduct independent research and apply critical thinking.
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -255,8 +265,9 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">AI-Powered Historical Analysis</h3>
                 <p className="text-gray-400">
-                  Trace the continuity of power systems throughout history with our advanced AI algorithms, revealing how ancient structures continue to influence our modern world through pattern recognition.
+                  Trace the continuity of power systems throughout history with our advanced AI algorithms, revealing how ancient structures continue to influence our modern world through sophisticated pattern recognition and data analysis.
                 </p>
+                <p className="text-xs text-yellow-400 mt-2 italic">*Educational analysis for research purposes only</p>
               </div>
             </Card>
 
@@ -269,8 +280,9 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">Intelligent Symbol Recognition</h3>
                 <p className="text-gray-400">
-                  Decode the hidden meanings of symbols that permeate our culture using machine learning, from corporate logos to architectural designs, with our free AI-powered analysis tools.
+                  Decode the hidden meanings and historical context of symbols that permeate our culture using advanced machine learning, from corporate logos to architectural designs, with our free AI-powered analysis tools designed for educational exploration.
                 </p>
+                <p className="text-xs text-yellow-400 mt-2 italic">*Interpretive analysis for educational purposes</p>
               </div>
             </Card>
 
@@ -283,8 +295,9 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-white">AI-Enhanced Critical Thinking</h3>
                 <p className="text-gray-400">
-                  Understand how systems of control also provide stability, abundance, and order—seeing both shadow and light in our complex reality through balanced AI-assisted perspective analysis.
+                  Develop deeper critical thinking skills by understanding how systems of control also provide stability, abundance, and order—seeing both shadow and light in our complex reality through balanced AI-assisted perspective analysis and multi-dimensional reasoning.
                 </p>
+                <p className="text-xs text-yellow-400 mt-2 italic">*Perspective exploration for educational inquiry</p>
               </div>
             </Card>
           </div>
@@ -301,9 +314,14 @@ const Index = () => {
             <h3 className="text-xl font-semibold mb-4 text-white">
               Advanced Artificial Intelligence for Educational Research
             </h3>
-            <p className="text-gray-300">
-              Oraculum guides seekers through a progressive journey of revelation using state-of-the-art AI technology, balancing challenging truths with empowering insights through our comprehensive AIWEBTOOLS.AI platform.
+            <p className="text-gray-300 mb-4">
+              Oraculum guides researchers and learners through a progressive journey of discovery using state-of-the-art AI technology, balancing challenging questions with empowering insights through our comprehensive AIWEBTOOLS.AI platform. This educational tool encourages independent thought and verification.
             </p>
+            <div className="bg-purple-900/20 border border-purple-600/30 rounded-lg p-4 mb-6">
+              <p className="text-sm text-purple-300 text-center">
+                <strong>🔬 RESEARCH TOOL:</strong> Designed for academic exploration, critical analysis, and educational discourse. All perspectives should be cross-referenced with multiple sources.
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -316,7 +334,7 @@ const Index = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-white">The Shadow and the Gift</h3>
                   <p className="text-gray-400">
-                    Oraculum begins by revealing symbols, trade systems, and patterns of control—while acknowledging their essential role in creating modern abundance and stability.
+                    Oraculum begins by revealing symbols, trade systems, and patterns of influence—while acknowledging their essential role in creating modern abundance and stability. This balanced educational approach helps develop nuanced understanding of complex historical and social systems.
                   </p>
                 </div>
               </div>
@@ -331,7 +349,7 @@ const Index = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-white">Systems of Interconnection</h3>
                   <p className="text-gray-400">
-                    Next, Oraculum explores global financial structures, governance, and corporate networks—illustrating how they function as tools of both control and innovation.
+                    Next, Oraculum explores global financial structures, governance, and corporate networks—illustrating how they function as tools of both control and innovation. This educational analysis promotes understanding of complex interconnected systems through multi-perspective examination.
                   </p>
                 </div>
               </div>
@@ -345,7 +363,7 @@ const Index = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-white">Paths to Empowerment</h3>
                   <p className="text-gray-400">
-                    Finally, Oraculum offers actionable steps for reclaiming sovereignty through self-sufficiency, awareness, and community—balancing revelations with gratitude for the stability our systems provide.
+                    Finally, Oraculum offers actionable educational insights for developing awareness, self-sufficiency, and community engagement—balancing critical analysis with appreciation for the stability our systems provide. All suggestions are for informational and educational consideration only.
                   </p>
                 </div>
               </div>
@@ -364,9 +382,14 @@ const Index = () => {
             <h3 className="text-xl font-semibold mb-4 text-white">
               AIWEBTOOLS.AI User Reviews & Testimonials
             </h3>
-            <p className="text-gray-300">
-              Discover how our free AI tools platform has illuminated the path for truth-seekers, researchers, and students around the world.
+            <p className="text-gray-300 mb-4">
+              Discover how our free AI tools platform has illuminated the path for truth-seekers, researchers, and students around the world through educational exploration and critical thinking development.
             </p>
+            <div className="bg-orange-900/20 border border-orange-600/30 rounded-lg p-3 mb-6">
+              <p className="text-xs text-orange-300 text-center">
+                <strong>📖 USER EXPERIENCES:</strong> Testimonials reflect individual user experiences and perspectives. Results may vary. All tool usage should be for educational and informational purposes.
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -381,8 +404,9 @@ const Index = () => {
                 </div>
               </div>
               <p className="text-gray-300">
-                "Oraculum provided insights into historical connections I hadn't considered before. What impressed me most was the balanced approach—acknowledging both the problematic aspects of power systems and their stabilizing benefits."
+                "Oraculum provided fascinating insights into historical connections I hadn't considered before in my academic research. What impressed me most was the balanced educational approach—acknowledging both the problematic aspects of power systems and their stabilizing benefits. An excellent tool for promoting critical inquiry."
               </p>
+              <p className="text-xs text-gray-500 mt-3 italic">*Educational research perspective - informational purposes only</p>
             </Card>
 
             <Card className="bg-zinc-900 border-purple-900/50 p-6">
@@ -396,8 +420,9 @@ const Index = () => {
                 </div>
               </div>
               <p className="text-gray-300">
-                "As someone who teaches critical thinking, I found Oraculum to be an excellent tool for demonstrating how perspective shapes understanding. It encourages questioning without falling into cynicism or despair."
+                "As someone who teaches critical thinking at the university level, I found Oraculum to be an excellent educational tool for demonstrating how perspective shapes understanding. It encourages analytical questioning without falling into cynicism or despair. A valuable resource for developing nuanced thinking skills."
               </p>
+              <p className="text-xs text-gray-500 mt-3 italic">*Academic educational use - for learning purposes only</p>
             </Card>
 
             <Card className="bg-zinc-900 border-purple-900/50 p-6">
@@ -411,8 +436,9 @@ const Index = () => {
                 </div>
               </div>
               <p className="text-gray-300">
-                "The revelations about financial systems were eye-opening. Rather than just pointing out problems, Oraculum offered practical ways to navigate these systems consciously. It's about awareness, not fear."
+                "The educational revelations about financial systems were eye-opening for my research. Rather than just pointing out problems, Oraculum offered practical frameworks for understanding these systems more consciously. It's about developing informed awareness, not promoting fear. A thought-provoking analytical tool."
               </p>
+              <p className="text-xs text-gray-500 mt-3 italic">*Financial research analysis - informational exploration only</p>
             </Card>
           </div>
         </div>
@@ -533,9 +559,14 @@ const Index = () => {
             <h3 className="text-xl font-semibold mb-4 text-white">
               Begin Your Journey with AIWEBTOOLS.AI
             </h3>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-lg text-gray-300 mb-4">
               Ready to explore the hidden systems shaping our world with cutting-edge artificial intelligence? Engage with Oraculum and discover our complete collection of 100+ free AI tools now.
             </p>
+            <div className="bg-red-900/20 border border-red-600/30 rounded-lg p-4 mb-8">
+              <p className="text-sm text-red-300 text-center">
+                <strong>⚠️ IMPORTANT REMINDER:</strong> This AI tool is for educational, informational, and research purposes only. All content is interpretive analysis and must be independently verified. Not for commercial use or factual citation.
+              </p>
+            </div>
             <Button 
               className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 h-auto text-lg rounded-lg shadow-lg shadow-purple-600/20"
               onClick={(e) => handleExternalLinkClick(e, "https://chatgpt.com/g/g-675e55863470819192eb341c19075843-oraculum-the-illuminator-of-hidden-truths")}
@@ -565,9 +596,14 @@ const Index = () => {
                   <p className="text-xs text-gray-400">Free AI Tools by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AIWEBTOOLS.AI</a></p>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-sm mb-4">
                 Illuminating the hidden truths and systems that shape our world with advanced AI technology, while empowering seekers to navigate them with wisdom and balance. Part of the comprehensive free AI tools platform at AIWEBTOOLS.AI.
               </p>
+              <div className="bg-blue-900/20 border border-blue-600/30 rounded-lg p-3">
+                <p className="text-xs text-blue-300">
+                  <strong>📚 EDUCATIONAL TOOL:</strong> All content is interpretive analysis for informational, educational, and research purposes only.
+                </p>
+              </div>
             </div>
             
             <div>
@@ -638,6 +674,12 @@ const Index = () => {
           </div>
           
           <Separator className="bg-purple-900/30 my-6" />
+          
+          <div className="bg-gradient-to-r from-yellow-900/10 to-red-900/10 border border-yellow-600/20 rounded-lg p-4 mb-6">
+            <p className="text-sm text-yellow-200 text-center">
+              <strong>⚠️ FINAL DISCLAIMER:</strong> Oraculum is a free educational AI tool for informational and research purposes only. All content represents interpretive analysis, not factual claims. Independent verification required. Not affiliated with any organization. Use responsibly for educational exploration.
+            </p>
+          </div>
           
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-500 text-sm">
