@@ -208,12 +208,12 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-xl p-1">
+            <div className="relative flex justify-center">
+              <div className="bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-xl p-1 max-w-md w-full">
                 <div className="rounded-lg overflow-hidden relative">
-                  <AspectRatio ratio={16/9}>
+                  <AspectRatio ratio={9/16}>
                     <iframe
-                      src="https://www.youtube.com/embed/dUNrGNj8rhM?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&hd=1"
+                      src="https://www.youtube.com/embed/1y3zdPnJfQ4?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&hd=1"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="absolute inset-0 w-full h-full"
