@@ -7,24 +7,11 @@ import { Separator } from "@/components/ui/separator";
 import { createTimePortalEffect } from "@/utils/timeEffects";
 
 const Index = () => {
-  const elevenLabsWidgetRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Show disclaimer modal on first visit
     const hasAgreed = localStorage.getItem("disclaimerAgreed");
     if (!hasAgreed) {
       document.getElementById("disclaimer-modal")?.classList.remove("hidden");
-    }
-
-    // Initialize the Eleven Labs widget
-    if (elevenLabsWidgetRef.current) {
-      // Create the widget element
-      const widgetElement = document.createElement('elevenlabs-convai');
-      widgetElement.setAttribute('agent-id', 'MGZMLTmz5SVSBNgJP6rM');
-      
-      // Clear any existing content and append the new widget
-      elevenLabsWidgetRef.current.innerHTML = '';
-      elevenLabsWidgetRef.current.appendChild(widgetElement);
     }
   }, []);
 
@@ -705,13 +692,6 @@ const Index = () => {
               </button>
             </div>
           </div>
-          
-          {/* Eleven Labs Conversational AI Widget */}
-          <div 
-            ref={elevenLabsWidgetRef}
-            className="fixed bottom-6 right-6 z-50"
-            data-elevenlabs-key="sk_d4ba415b39332fdbfc89f2ee1eb32967ed650b6c1b71b4a2"
-          ></div>
         </div>
       </footer>
     </div>
