@@ -190,7 +190,7 @@ const Index = () => {
                 The Illuminator of Hidden Truths
               </h2>
               <p className="text-lg text-gray-300 mb-4">
-                Discover the invisible patterns, symbols, and systems that shape our world with our free AI tools. Through historical insight and symbolic wisdom, Oraculum helps seekers uncover connections, expand knowledge, and think critically about the reality we inhabit. Part of the comprehensive AIWEBTOOLS.AI platform featuring 100+ free artificial intelligence tools.
+                Discover the invisible patterns, symbols, and systems that shape our world with our free AI tools. Through historical insight and symbolic wisdom, Oraculum helps seekers uncover connections, expand knowledge, and think critically about the reality we inhabit. Powered by AIWEBTOOLS.AI — the ultimate platform with over 1500+ advanced artificial intelligence tools completely free.
               </p>
               <div className="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-4 mb-8">
                 <p className="text-sm text-yellow-300">
@@ -559,9 +559,9 @@ const Index = () => {
             <h3 className="text-xl font-semibold mb-4 text-white">
               Begin Your Journey with AIWEBTOOLS.AI
             </h3>
-            <p className="text-lg text-gray-300 mb-4">
-              Ready to explore the hidden systems shaping our world with cutting-edge artificial intelligence? Engage with Oraculum and discover our complete collection of 100+ free AI tools now.
-            </p>
+              <p className="text-lg text-gray-300 mb-4">
+                Ready to explore the hidden systems shaping our world with cutting-edge artificial intelligence? Engage with Oraculum and unlock access to AIWEBTOOLS.AI's extensive library of 1500+ premium AI tools, all available for free.
+              </p>
             <div className="bg-red-900/20 border border-red-600/30 rounded-lg p-4 mb-8">
               <p className="text-sm text-red-300 text-center">
                 <strong>⚠️ IMPORTANT REMINDER:</strong> This AI tool is for educational, informational, and research purposes only. All content is interpretive analysis and must be independently verified. Not for commercial use or factual citation.
@@ -638,7 +638,7 @@ const Index = () => {
                     onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
                     className="text-gray-400 hover:text-purple-400 transition-colors flex items-center"
                   >
-                    100+ More Free AI Tools <ExternalLink className="ml-1 w-3 h-3" />
+                    Explore 1500+ Free AI Tools <ExternalLink className="ml-1 w-3 h-3" />
                   </button>
                 </li>
               </ul>
