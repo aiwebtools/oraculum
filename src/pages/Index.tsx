@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Eye, ArrowRight, ExternalLink, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,6 +7,13 @@ import { Separator } from "@/components/ui/separator";
 import { createTimePortalEffect } from "@/utils/timeEffects";
 
 const Index = () => {
+  const [currentVideo, setCurrentVideo] = useState(0);
+  
+  const videos = [
+    { id: "eAaXtMBYWYs", title: "Oraculum Introduction" },
+    { id: "1y3zdPnJfQ4", title: "Oraculum AI Tool Demo" }
+  ];
+
   useEffect(() => {
     // Show disclaimer modal on first visit
     const hasAgreed = localStorage.getItem("disclaimerAgreed");
@@ -14,6 +21,26 @@ const Index = () => {
       document.getElementById("disclaimer-modal")?.classList.remove("hidden");
     }
   }, []);
+
+  // Handle video end - switch to next video
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin === "https://www.youtube.com") {
+        try {
+          const data = JSON.parse(event.data);
+          if (data.event === "onStateChange" && data.info === 0) {
+            // Video ended, switch to next
+            setCurrentVideo((prev) => (prev + 1) % videos.length);
+          }
+        } catch (e) {
+          // Not a JSON message, ignore
+        }
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [videos.length]);
 
   const handleAgree = () => {
     localStorage.setItem("disclaimerAgreed", "true");
@@ -205,15 +232,28 @@ const Index = () => {
                 <div className="rounded-lg overflow-hidden relative">
                   <AspectRatio ratio={9/16}>
                     <iframe
-                      src="https://www.youtube.com/embed/1y3zdPnJfQ4?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&hd=1"
+                      key={currentVideo}
+                      src={`https://www.youtube.com/embed/${videos[currentVideo].id}?autoplay=1&mute=0&controls=1&showinfo=0&rel=0&hd=1&enablejsapi=1`}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="absolute inset-0 w-full h-full"
-                      title="Oraculum AI Tool Demo - Free Educational AI by AIWEBTOOLS.AI"
+                      title={`${videos[currentVideo].title} - Free Educational AI by AIWEBTOOLS.AI`}
                     ></iframe>
                   </AspectRatio>
                 </div>
-                <p className="text-xs text-purple-400 italic text-center py-2 px-1">
+                <div className="flex justify-center gap-2 py-2">
+                  {videos.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentVideo(index)}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        currentVideo === index ? "bg-purple-400" : "bg-gray-600 hover:bg-gray-500"
+                      }`}
+                      aria-label={`Switch to video ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-xs text-purple-400 italic text-center px-1 pb-2">
                   Educational AI tool for research purposes only - Free to use at AIWEBTOOLS.AI
                 </p>
               </div>
