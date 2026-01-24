@@ -228,8 +228,10 @@ const Index = () => {
               </div>
             </div>
             <div className="relative flex justify-center">
-              <div className="bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-xl p-1 max-w-md w-full">
-                <div className="rounded-lg overflow-hidden relative">
+              <div className="relative bg-gradient-to-r from-yellow-400/30 via-amber-300/40 to-yellow-400/30 rounded-xl p-1 max-w-md w-full shadow-[0_0_30px_10px_rgba(250,204,21,0.4),0_0_60px_20px_rgba(250,204,21,0.2),0_0_100px_40px_rgba(250,204,21,0.1)] animate-pulse">
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-400 opacity-60 blur-sm animate-[pulse_2s_ease-in-out_infinite]"></div>
+                <div className="absolute inset-0 rounded-xl border-2 border-yellow-400/80 shadow-[inset_0_0_20px_rgba(250,204,21,0.3)]"></div>
+                <div className="rounded-lg overflow-hidden relative z-10">
                   <AspectRatio ratio={9/16}>
                     <iframe
                       key={currentVideo}
