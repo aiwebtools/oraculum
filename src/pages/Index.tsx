@@ -702,6 +702,26 @@ const Index = () => {
           
           <Separator className="bg-purple-900/30 my-6" />
           
+          {/* Second Video Section */}
+          <div className="flex flex-col items-center mb-8">
+            <h3 className="text-xl md:text-2xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400">
+              END THE LIES AND DECEPTION AND CHOOSE LOVE, LIFE, AND LIGHT
+            </h3>
+            <div className="bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-xl p-1 max-w-xs w-full">
+              <div className="rounded-lg overflow-hidden relative">
+                <AspectRatio ratio={9/16}>
+                  <iframe
+                    src="https://www.youtube.com/embed/1y3zdPnJfQ4?autoplay=0&mute=0&controls=1&showinfo=0&rel=0&hd=1"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    title="End the Lies - Choose Love, Life, and Light"
+                  ></iframe>
+                </AspectRatio>
+              </div>
+            </div>
+          </div>
+          
           <div className="bg-gradient-to-r from-yellow-900/10 to-red-900/10 border border-yellow-600/20 rounded-lg p-4 mb-6">
             <p className="text-sm text-yellow-200 text-center">
               <strong>⚠️ FINAL DISCLAIMER:</strong> Oraculum is a free educational AI tool for informational and research purposes only. All content represents interpretive analysis, not factual claims. Independent verification required. Not affiliated with any organization. Use responsibly for educational exploration.
