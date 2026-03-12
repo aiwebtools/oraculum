@@ -110,7 +110,7 @@ const Index = () => {
               <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                 ORACULUM
               </h1>
-              <p className="text-xs text-gray-400">Free AI Tools by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AIWEBTOOLS.AI</a></p>
+              <p className="text-xs text-gray-400">Free AI Tools by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}>AIWEBTOOLS.AI</a></p>
             </div>
           </div>
 
@@ -130,7 +130,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
-              onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
+              onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}
             >
               More Free AI Tools <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
@@ -177,7 +177,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
-              onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
+              onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}
             >
               More Free AI Tools <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
@@ -622,7 +622,7 @@ const Index = () => {
                   <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                     ORACULUM
                   </h3>
-                  <p className="text-xs text-gray-400">Free AI Tools by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AIWEBTOOLS.AI</a></p>
+                  <p className="text-xs text-gray-400">Free AI Tools by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}>AIWEBTOOLS.AI</a></p>
                 </div>
               </div>
               <p className="text-gray-400 text-sm mb-4">
@@ -664,7 +664,7 @@ const Index = () => {
                 </li>
                 <li>
                   <button 
-                    onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
+                    onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}
                     className="text-gray-400 hover:text-purple-400 transition-colors flex items-center"
                   >
                     Explore 1500+ Free AI Tools <ExternalLink className="ml-1 w-3 h-3" />
@@ -750,7 +750,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-500 text-sm">
               <button 
-                onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
+                onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}
                 className="hover:text-purple-400 transition-colors"
               >
                 © 2025 AIWEBTOOLS.AI - Free AI Tools Platform. All rights reserved.
