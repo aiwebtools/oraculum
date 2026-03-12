@@ -750,7 +750,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-500 text-sm">
               <button 
-                onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
+                onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}
                 className="hover:text-purple-400 transition-colors"
               >
                 © 2025 AIWEBTOOLS.AI - Free AI Tools Platform. All rights reserved.
