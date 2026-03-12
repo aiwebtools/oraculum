@@ -622,7 +622,7 @@ const Index = () => {
                   <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                     ORACULUM
                   </h3>
-                  <p className="text-xs text-gray-400">Free AI Tools by <a href="https://www.aiwebtools.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}>AIWEBTOOLS.AI</a></p>
+                  <p className="text-xs text-gray-400">Free AI Tools by <a href="https://aiwebtools.lovable.app/?via=aiwebtools" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline" onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}>AIWEBTOOLS.AI</a></p>
                 </div>
               </div>
               <p className="text-gray-400 text-sm mb-4">
