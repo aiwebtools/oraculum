@@ -177,7 +177,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               className="border-purple-500 text-purple-400 hover:bg-purple-900/30"
-              onClick={(e) => handleExternalLinkClick(e, "https://www.aiwebtools.ai")}
+              onClick={(e) => handleExternalLinkClick(e, "https://aiwebtools.lovable.app/?via=aiwebtools")}
             >
               More Free AI Tools <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
